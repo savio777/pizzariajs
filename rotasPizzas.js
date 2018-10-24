@@ -9,9 +9,9 @@ roteadorPizzas.route('/')
     next()
 })
 
-// 
+// receber
 .get((req, res) => {
-    res.end('Enviando pizzas kkk')   // para teste
+    res.end('Enviando todas pizzas')   // para teste
 })
 
 // criação
@@ -32,24 +32,23 @@ roteadorPizzas.route('/')
 // para os especificos novo route com endereço
 
 // get em pizza especifica
-.get(':pizzaId', (req, res) => {
+.get('/:pizzaId', (req, res) => {
     res.end('enviando pizzas com sabor ' + req.params.pizzaId)
 })
 
-.post(':pizzaId', (req, res) => {
+.post('/:pizzaId', (req, res) => {
     res.statusCode = 403
     res.end('metodo post nao e suportado em /pizzas/' + req.params.pizzaId)
 })
 
-.put(':pizzaId', (req, res) => {
-    res.end(`adicionando no sabor ${res.params.pizzaId}: ${req.body.sabor}\n
+.put('/:pizzaId', (req, res) => {
+    res.end(`adicionando no sabor ${req.params.pizzaId}: ${req.body.sabor}\n
     detalhes do sabor: ${req.body.descricao}`)
 })
 
 .delete('/:pizzaId', (req, res) => {
     res.end('deletando o sabor: ' + req.params.pizzaId)
 })
-
 
 // exportar o roteador pizzas
 module.exports = roteadorPizzas
