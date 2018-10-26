@@ -13,11 +13,15 @@ const port = 3000
 
 const app = express()
 
+const servidor = http.createServer(app)
+
 // usar rotas
 const roteadorPizzas = require('./rotasPizzas.js')
 
-const roteadorPromo = require('./rotasPromo.js')
+//const roteadorPromo = require('./rotasPromo.js')
 
+//const roteadorCombo = require('./rotasCombo.js')
+ 
 app.use(express.static(__dirname + '/public'))
 
 //interpretar requisições com json
@@ -26,16 +30,18 @@ app.use(express.json())
 // usar as rotas
 app.use('/pizzas', roteadorPizzas)
 
-const servidor = http.createServer(app)
+//app.use('/promo', roteadorPromo)
+
+//app.use('/combo', roteadorCombo)
+
+// para teste
+/*function processaRequisicao(req, res){
+    res.end('iae kkk')
+}*/
 
 /*app.use((req, res) => {
     console.log(req.method, req.url)
 })*/
-
-// para teste
-function processaRequisicao(req, res){
-    res.end('iae kkk')
-}
 
 servidor.listen(port, hostname, () => {
     console.log(`Servidor rodando em http://${hostname}:${port}`)

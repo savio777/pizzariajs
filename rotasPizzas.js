@@ -4,50 +4,59 @@ const roteadorPizzas = express.Router()
 
 roteadorPizzas.route('/')
 
-.all((req, res, next) => {
+// usando o function para não necessitar usar callback com funções lambda
+roteadorPizzas.all(function(req, res, next) {
     res.statusCode = 200  // ok
     next()
 })
 
-// receber
-.get((req, res) => {
+// receber  
+roteadorPizzas.get(function(req, res, next)  {
     res.end('Enviando todas pizzas')   // para teste
+    next()
 })
 
 // criação
-.post((req, res) => {
+roteadorPizzas.post(function(req, res, next)  {
     res.end(`adicionar novo sabor: ${req.body.sabor}\n
     adicionar descricao: ${req.body.descricao}`)
+    next()
 })
 
-.put((req, res) => {
+roteadorPizzas.put(function(req, res, next)  {
     res.statusCode = 403  // erro
     res.end(`metodo put nao e suportado em /pizzas`)
+    next()
 })
 
-.delete((req, res) => {
+roteadorPizzas.delete(function(req, res, next) {
     res.end('deletar todos os sabores de pizza')
+    next()
 })
 
 // para os especificos novo route com endereço
 
 // get em pizza especifica
-.get('/:pizzaId', (req, res) => {
+roteadorPizzas.get('/:pizzaId', function(req, res, next)  {
     res.end('enviando pizzas com sabor ' + req.params.pizzaId)
+    next()
 })
 
-.post('/:pizzaId', (req, res) => {
+roteadorPizzas.post('/:pizzaId', function(req, res, next)  {
     res.statusCode = 403
     res.end('metodo post nao e suportado em /pizzas/' + req.params.pizzaId)
+    next()
 })
 
-.put('/:pizzaId', (req, res) => {
+roteadorPizzas.put('/:pizzaId', function(req, res, next)  {
     res.end(`adicionando no sabor ${req.params.pizzaId}: ${req.body.sabor}\n
     detalhes do sabor: ${req.body.descricao}`)
+    next()
 })
 
-.delete('/:pizzaId', (req, res) => {
+roteadorPizzas.delete('/:pizzaId', function(req, res, next)  {
     res.end('deletando o sabor: ' + req.params.pizzaId)
+    next()
 })
 
 // exportar o roteador pizzas

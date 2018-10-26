@@ -4,41 +4,41 @@ const roteadorPromo = express.Router()
 
 roteadorPromo.route('/')
 
-.all((req, res, next) => {
+roteadorPromo.all(function(req, res, next) {
     res.statusCode = 200
     next()
 })
 
-.get((req, res) => {
+roteadorPromo.get(function(req, res)  {
     res.end('pizzas com promocao')
 })
 
-.post((req, res) => {
+roteadorPromo.post(function(req, res)  {
     res.end(`adicionar promocao em pizzas com sabor: ${req.body.sabor}`)
 })
 
 
-.put((req, res) => {
+roteadorPromo.put(function(req, res)  {
     res.end('atualizar promocoes')
 })
 
-.delete((req, res) => {
+roteadorPromo.delete(function(req, res)  {
     res.end('deletar todas promocoes')
 })
 
-.get('/:promoId', (req, res) => {
+roteadorPromo.get('/:promoId', function(req, res)  {
     res.end(`promocao em pizzas com sabor: ${req.params.promoId}`)
 })
 
-.post('/:promoId', (req, res) => {
+roteadorPromo.post('/:promoId', function(req, res)  {
     res.end(`criar promocao em pizza com sabor: ${req.params.promoId}`)
 })
 
-.put('/:promoId', (res, req) => {
+roteadorPromo.put('/:promoId', function(res, req)  {
     res.end(`atualizar promocoes em pizzas com sabor: ${req.params.promoId}`)
 })
 
-.delete('/:promoId', (req, res) => {
+roteadorPromo.delete('/:promoId', function(req, res)  {
     res.end(`apagar a promocao no sabor: ${req.params.promoId}`)
 })
 

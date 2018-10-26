@@ -1,14 +1,15 @@
 {
   "name": "httpjs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "desenvolvendo app para fins de aprendizado",
+  "comment": "colocar index.js para poder utilizar npm start, npm i para baixar dependencias",
+  "main": "index.js",  
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "savio <saviopf22@gmail.com>",
-  "license": "ISC",
+  "license": "BSD",
   "dependencies": {
     "express": "^4.16.4"
   }
