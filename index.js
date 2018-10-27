@@ -34,15 +34,11 @@ app.use('/pizzas', roteadorPizzas)
 
 //app.use('/combo', roteadorCombo)
 
-// para teste
-/*function processaRequisicao(req, res){
-    res.end('iae kkk')
-}*/
-
-/*app.use((req, res) => {
-    console.log(req.method, req.url)
-})*/
-
 servidor.listen(port, hostname, () => {
     console.log(`Servidor rodando em http://${hostname}:${port}`)
+})
+
+// para teste, mostrar as requisições
+app.use((req, res) => {
+    console.log(req.method, req.url)
 })
