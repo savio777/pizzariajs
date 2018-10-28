@@ -1,44 +1,42 @@
 const express = require('express')
 
-const roteadorCombo = express.Router()
+var roteadorCombo = express.Router()
 
-roteadorCombo.route('/')
-
-roteadorCombo.all(function(req, res, next)  {
+.all('/',(req, res, next) => {
     res.statusCode = 200
     next()
 })
 
-roteadorCombo.get(function(req, res)  {
+.get('/',(req, res) => {
     res.end('enviar todos os lanches de combo')
 })
 
-roteadorCombo.post(function(req, res)  {
+.post('/',(req, res) => {
     res.end('adicionar lanche: ' + req.body.lanche)
 })
 
-roteadorCombo.put(function(req, res)  {
+.put('/',(req, res) => {
     statusCode = 403
     res.end('metodo put nao e suportado em /combo')
 })
 
-roteadorCombo.delete(function(req, res)  {
+.delete('/',(req, res) => {
     res.end('deletar todos os combos')
 })
 
-roteadorCombo.get('/:comboId', function(req, res)  {
+.get('/:comboId', (req, res) => {
     res.end(`enviar combo: ${req.params.comboId}`)
 })
 
-roteadorCombo.post('/:comboId', function(req, res)  {
+.post('/:comboId',(req, res) => {
     res.end(`adicionar combo: ${req.params.comboId}`)
 })
 
-roteadorCombo.put('/:comboId', function(req, res)  {
+.put('/:comboId', (req, res) => {
     res.end(`mudar combo: ${req.params.comboId}`)
 })
 
-roteadorCombo.delete('/:comboId', function(req, res)  {
+.delete('/:comboId', (req, res) => {
     res.end(`deletar combo: ${req.params.comboId}`)
 })
 

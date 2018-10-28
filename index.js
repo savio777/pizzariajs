@@ -18,9 +18,9 @@ const servidor = http.createServer(app)
 // usar rotas
 const roteadorPizzas = require('./rotasPizzas.js')
 
-//const roteadorPromo = require('./rotasPromo.js')
+const roteadorPromo = require('./rotasPromo.js')
 
-//const roteadorCombo = require('./rotasCombo.js')
+const roteadorCombo = require('./rotasCombo.js')
  
 app.use(express.static(__dirname + '/public'))
 
@@ -30,9 +30,9 @@ app.use(express.json())
 // usar as rotas
 app.use('/pizzas', roteadorPizzas)
 
-//app.use('/promo', roteadorPromo)
+app.use('/promo', roteadorPromo)
 
-//app.use('/combo', roteadorCombo)
+app.use('/combo', roteadorCombo)
 
 servidor.listen(port, hostname, () => {
     console.log(`Servidor rodando em http://${hostname}:${port}`)
