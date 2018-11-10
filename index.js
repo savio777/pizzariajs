@@ -16,11 +16,9 @@ const app = express()
 const servidor = http.createServer(app)
 
 // usar rotas
-const roteadorPizzas = require('./rotasPizzas.js')
-
-const roteadorPromo = require('./rotasPromo.js')
-
-const roteadorCombo = require('./rotasCombo.js')
+const roteadorPizzas = require('./routes/rotasPizzas.js')
+const roteadorPromo = require('./routes/rotasPromo.js')
+const roteadorCombo = require('./routes/rotasCombo.js')
  
 app.use(express.static(__dirname + '/public'))
 
